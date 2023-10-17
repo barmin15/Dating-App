@@ -1,0 +1,116 @@
+body {
+    background-color: #ff1d58;
+}
+
+#register {
+    zoom: 1.1;
+    font-family: Courier, monospace;
+    color: #0049B7;
+    background-color: #fff685;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 15px 50px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.icon {
+    padding: 10px;
+    background: #00DDFF;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none; 
+    background-color: #fff685; 
+}
+
+.input-field:focus {
+    border: 2px solid #00DDFF;
+}
+
+.btn {
+    font-family: Courier, monospace;
+    background-color: #00DDFF;
+    color: #ff1d58;
+    font-size:medium;
+    font-weight: 550;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 30px;
+}
+
+.changeLogin{
+    font-family: Courier, monospace;
+    background-color: #ff1d58;
+    color: #00DDFF;
+    font-size:medium;
+    font-weight: 550;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height:100vh;
+    opacity: 0.9;
+    border-radius: 30px;
+}
+
+.left{
+    font-family: Courier, monospace;
+    font-size: 25px;
+    text-align: left;
+}
+.right{
+    font-family: Courier, monospace;
+    font-size: 20px;
+    text-align: right;
+}
+
+.changeLogin:hover {
+    opacity: 100;
+    background-color: #ff1d58;
+    color: #0049B7;
+    
+}
+
+.btn:hover {
+    opacity: 100;
+    background-color: #ff1d58;
+    color: #0049B7;
+}
+
+#genders {
+    color: #0049B7;
+    background: #fff685;
+    border-style: solid;
+    border-color: #00DDFF;
+    width:100%;
+}
+
+#input {
+    color: #0049B7;
+    background: #fff685;
+    border-style: solid;
+    border-color: #00DDFF;
+}

@@ -1,0 +1,38 @@
+.nav {
+    font-family: Courier, monospace;
+    background-color: #0049B7;
+    overflow: hidden;
+}
+
+.nav a {
+    font-family: Courier, monospace;
+    float: right;
+    color: #00DDFF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#home {
+    font-family: Courier, monospace;
+  float: left;
+}
+
+.nav a:hover {
+    font-family: Courier, monospace;
+    background-color: #f75990;
+    color: black;
+}
+
+.nav a.active {
+    font-family: Courier, monospace;
+    background-color: #00DDFF;
+    color: darkblue;
+}
+
+#home:hover{
+    font-family: Courier, monospace;
+    background-color: #f75990;
+    color: black;
+}

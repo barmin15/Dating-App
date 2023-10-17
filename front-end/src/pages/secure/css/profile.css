@@ -1,0 +1,177 @@
+.edit {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  height: 5%;
+  font-family: Courier, monospace;
+  color: #0049B7;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  background-color: #fff685;
+  border-radius: 15px;
+}
+
+.edit:hover {
+  background-color: #00DDFF;
+  color: #f75990;
+}
+
+.card {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Courier, monospace;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  background-color: #fff685;
+  border-radius: 20px;
+  padding: 8px;
+  color: #0049B7;
+}
+
+img {
+  border-radius: 20px;
+  width: 35vh;
+  height: auto;
+}
+
+.title {
+  font-family: Courier, monospace;
+  color: grey;
+  font-size: 18px;
+}
+
+.like {
+  font-family: Courier, monospace;
+  color: #0049B7;
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  background-color: #00DDFF;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 18px;
+  border-radius: 10px;
+  height: 100%;
+}
+
+a {
+  font-family: Courier, monospace;
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.like:hover,
+a:hover,
+.changeInfo:hover {
+  font-family: Courier, monospace;
+  background-color: #f75990;
+
+}
+
+.prof {
+  font-family: Courier, monospace;
+  text-align: center;
+  color: #0049B7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.input[type=text],
+.select,
+textarea {
+  color: #0049B7;
+  background: #fff685;
+  border-style: solid;
+  border-color: #00DDFF;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #00DDFF;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.input[type=submit] {
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+
+
+.container {
+  border-color: #0049B7;
+  background-color: #fff685;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: fit-content;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+
+  .col-25,
+  .col-75,
+  .input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+.changeInfo{
+  font-family: Courier, monospace;
+  color: #0049B7;
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  background-color: #00DDFF;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 10px;
+  height: 100%;
+}

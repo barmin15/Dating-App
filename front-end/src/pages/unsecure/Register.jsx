@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { SelectGender } from './components/SelectGender';
 import { InputPersonalData } from './components/inputPersonalData';
 import { useState, useEffect } from "react"
+import { request } from "../../fetch/fetch";
 import React from "react";
 import "./css/register.css"
 import { passwordChecker, emailChecker, nameChecker, nameTik, passwordTik, emailTik } from "../../logic/loginVerifier"
@@ -28,7 +29,17 @@ export default function Register() {
         const isInput = [name, email, password, gender].filter(elem => elem === null).length === 0;
 
         if (isInput && passwordChecker(password) && emailChecker(email) && nameChecker(name)) {
-            navigate("/login")
+            request("POST", "/api/auth/register", {
+                gender: gender,
+                username: name,
+                login: email,
+                password: password,
+            })
+                .then((response) => {
+                    response.data === true ? navigate("/login") : navigate("/error");
+                }).catch((error) => {
+                    navigate("/error");
+                });
         }
     }
 

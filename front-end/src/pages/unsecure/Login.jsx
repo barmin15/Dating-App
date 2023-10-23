@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
+import { request, setAuthToken } from "../../fetch/fetch";
 import React from "react";
 import "./css/register.css"
 
@@ -12,25 +13,36 @@ export default function Login() {
     function onSubmit(e) {
         e.preventDefault();
         const isInput = [email, password].filter(elem => elem === null).length === 0;
-        
-        if(isInput){
-            navigate("/app/profile")
+        if (isInput) {
+            const url = "/api/auth/login";
+            e.preventDefault();
+            request("POST", url, { login: email, password: password })
+                .then((response) => {
+                    setAuthToken(response.data.token);
+                    //navigate("/app/profile")
+                    console.log(response)
+                })
+                .catch((error) => {
+                    console.log(error)
+                    //navigate("/error")
+                });
+
         }
     }
 
-    
 
-    function onChangeLogin(e){
+
+    function onChangeLogin(e) {
         e.preventDefault();
-        navigate("/")
+        navigate('/')
     }
 
 
     return (<div>
         <button className='changeLogin' onClick={(e) => onChangeLogin(e)}>
-        <p className='left'>Not a User?</p> <br />
-         <p className='right'>Click anywhere out of the box</p>
-         </button>
+            <p className='left'>Not a User?</p> <br />
+            <p className='right'>Click anywhere out of the box</p>
+        </button>
         <form id="register">
             <h2>Welcome back!</h2>
 

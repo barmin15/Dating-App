@@ -7,14 +7,21 @@ export const getAuthToken = () => {
   return window.sessionStorage.getItem("auth_token");
 };
 
-
 export const setAuthToken = (token) => {
   window.sessionStorage.setItem("auth_token", token);
 };
 
-export const request = (method, url, data) => {
-  let headers = {};
+export const setUserLogin = (login) => {
+  window.sessionStorage.setItem("login", login);
+}
 
+export const getUserLogin = () => {
+  window.sessionStorage.getItem("login");
+}
+
+export const request = (method, url, data) => {
+  let headers = null;
+  console.log("auth:", getAuthToken())
   if (getAuthToken() !== null && getAuthToken() !== "null") {
     headers = { Authorization: `Bearer ${getAuthToken()}` };
   }

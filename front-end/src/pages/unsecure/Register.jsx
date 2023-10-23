@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { SelectGender } from './components/SelectGender';
 import { InputPersonalData } from './components/inputPersonalData';
 import { useState, useEffect } from "react"
-import { request } from "../../fetch/fetch";
+import { request, setAuthToken, setUserLogin } from "../../fetch/fetch";
 import React from "react";
 import "./css/register.css"
 import { passwordChecker, emailChecker, nameChecker, nameTik, passwordTik, emailTik } from "../../logic/loginVerifier"
@@ -36,9 +36,12 @@ export default function Register() {
                 password: password,
             })
                 .then((response) => {
-                    response.data === true ? navigate("/login") : navigate("/error");
+                    console.log(response)
+                    setUserLogin(response.data.login)
+                    setAuthToken(response.data.token);
+                    navigate("/app/profile")
                 }).catch((error) => {
-                    navigate("/error");
+                    //navigate("/error");
                 });
         }
     }

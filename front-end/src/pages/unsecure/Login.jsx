@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { request, setAuthToken } from "../../fetch/fetch";
+import { request, setAuthToken, setUserLogin } from "../../fetch/fetch";
 import React from "react";
 import "./css/register.css"
 
@@ -18,9 +18,9 @@ export default function Login() {
             e.preventDefault();
             request("POST", url, { login: email, password: password })
                 .then((response) => {
+                    setUserLogin(response.data.login)
                     setAuthToken(response.data.token);
-                    //navigate("/app/profile")
-                    console.log(response)
+                    navigate("/app/profile")
                 })
                 .catch((error) => {
                     console.log(error)
@@ -29,7 +29,6 @@ export default function Login() {
 
         }
     }
-
 
 
     function onChangeLogin(e) {

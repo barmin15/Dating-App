@@ -19,7 +19,7 @@ public class User {
     private Long id;
     private String username;
     private String login;
-    private char[] password;
+    private String password;
     private String gender;
 
     @ManyToMany()

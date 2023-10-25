@@ -6,7 +6,7 @@ export const passwordChecker = (password) => {
         return true;
     }
     alert("Password must be at least 8 characters long, and must contain a capital letter")
-    return true;
+    return false;
 }
 
 export const emailChecker = (email) => {

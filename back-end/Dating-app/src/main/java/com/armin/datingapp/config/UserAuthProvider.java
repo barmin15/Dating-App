@@ -1,6 +1,7 @@
 package com.armin.datingapp.config;
 
 import com.armin.datingapp.data.dto.UserDto;
+import com.armin.datingapp.service.AuthService;
 import com.armin.datingapp.service.UserService;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -21,7 +22,7 @@ import java.util.Date;
 public class UserAuthProvider {
     private String secretKey = System.getenv("secret_key");
 
-    private final UserService userService;
+    private final AuthService authService;
 
     @PostConstruct
     protected void init(){
@@ -43,7 +44,7 @@ public class UserAuthProvider {
                 .build();
         DecodedJWT decoded = verifier.verify(token);
 
-        UserDto user = userService.findByLogin(decoded.getIssuer());
+        UserDto user = authService.findByLogin(decoded.getIssuer());
 
         return new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList());
     }

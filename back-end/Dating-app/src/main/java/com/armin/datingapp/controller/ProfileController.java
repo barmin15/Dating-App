@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/user/profile")
-public class UserProfileController {
+public class ProfileController {
 
 }

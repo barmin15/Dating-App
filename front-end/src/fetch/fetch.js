@@ -16,12 +16,12 @@ export const setUserLogin = (login) => {
 }
 
 export const getUserLogin = () => {
-  window.sessionStorage.getItem("login");
+ return window.sessionStorage.getItem("login");
+  
 }
 
 export const request = (method, url, data) => {
   let headers = null;
-  console.log("auth:", getAuthToken())
   if (getAuthToken() !== null && getAuthToken() !== "null") {
     headers = { Authorization: `Bearer ${getAuthToken()}` };
   }

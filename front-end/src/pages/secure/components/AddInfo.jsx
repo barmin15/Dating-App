@@ -2,6 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 export function AddInfo({
     setAge,
+    setGenderPreference,
+    setAmountOfExes,
+    setImageUrl,
     onWordToDescribe,
     setWhy,
     setGender,
@@ -32,9 +35,17 @@ export function AddInfo({
                     <label htmlFor="age" className="label">Your age</label>
                 </div>
                 <div class="col-75">
-                    <select className="select" id="gender" name="age">
-                        {ages?.map((elem, index) => <option onClick={e => setAge(e.target.value)} key={index}>{elem}</option>)}
+                    <select onChange={(e) => setAge(e.target.value)} className="select" id="gender" name="age">
+                        {ages?.map((elem, index) => <option key={index}>{elem}</option>)}
                     </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label htmlFor="word" className="label">Set your image url</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" onChange={e => setImageUrl(e.target.value)} id="word" name="word" className='input' placeholder="copy the image adress of your picture" />
                 </div>
             </div>
             <div class="row">
@@ -58,8 +69,9 @@ export function AddInfo({
                     <label htmlFor="amountOfRels" className="label">Amount of ex relationships</label>
                 </div>
                 <div class="col-75">
-                    <select className="select" id="gender" name="amountOfrels">
-                        {exRelationshipAmounts?.map((elem, index) => <option onClick={e => setGender(e.target.value)} key={index}>{elem}</option>)}
+                    <select onChange={(e) => {if(e.target.id !== "not"){setAmountOfExes(e.target.value)}}} className="select" id="exes" name="exes">
+                    <option id="not">not selected</option>
+                        {exRelationshipAmounts?.map((elem, index) => <option key={index}>{elem}</option>)}
                     </select>
                 </div>
             </div>
@@ -68,8 +80,20 @@ export function AddInfo({
                     <label htmlFor="gender" className="label">Select your gender</label>
                 </div>
                 <div class="col-75">
-                    <select className="select" id="gender" name="gender">
-                        {genders?.map((elem, index) => <option onClick={e => setGender(e.target.value)} key={index}>{elem}</option>)}
+                    <select onChange={(e) => {if(e.target.id !== "not"){setGender(e.target.value)}}} className="select" id="gender" name="gender">
+                        <option id="not">not selected</option>
+                        {genders?.map((elem, index) => <option key={index}>{elem}</option>)}
+                    </select>
+                </div>
+            </div>
+            <div className="row">
+                <div class="col-25">
+                    <label htmlFor="gender" className="label">Select your gender preference</label>
+                </div>
+                <div class="col-75">
+                    <select onChange={(e) => {if(e.target.id !== "not"){setGenderPreference(e.target.value)}}} className="select" id="gender" name="gender">
+                        <option id="not">not selected</option>
+                        {genders?.map((elem, index) => <option key={index}>{elem}</option>)}
                     </select>
                 </div>
             </div>

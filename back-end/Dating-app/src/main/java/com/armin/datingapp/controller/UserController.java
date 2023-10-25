@@ -1,12 +1,11 @@
 package com.armin.datingapp.controller;
 
+import com.armin.datingapp.data.dto.UpdateUserDto;
 import com.armin.datingapp.data.entity.User;
 import com.armin.datingapp.service.UserService;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,8 +23,12 @@ public class UserController {
     }
 
     @GetMapping("/login/{login}")
-    public Optional<User> getUserById(@PathVariable String login) {
+    public Optional<User> getUserByLogin(@PathVariable String login) {
         return userService.getUserByLogin(login);
     }
 
+    @PutMapping ("/update/{login}")
+    public Optional<User> updateUserByLogin(@PathVariable String login, @RequestBody UpdateUserDto updateUserDto) {
+        return userService.updateUserByLogin(login, updateUserDto);
+    }
 }

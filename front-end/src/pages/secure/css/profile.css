@@ -1,6 +1,6 @@
 .edit {
   position: absolute;
-  top: 85%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 10%;
@@ -40,13 +40,14 @@
 img {
   border-radius: 20px;
   width: 35vh;
-  height: auto;
+  height: 38vh;
+  object-fit: cover;
 }
 
 .title {
   font-family: Courier, monospace;
   color: grey;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .like {
@@ -160,7 +161,8 @@ textarea {
     margin-top: 0;
   }
 }
-.changeInfo{
+
+.changeInfo {
   font-family: Courier, monospace;
   color: #0049B7;
   border: none;

@@ -23,7 +23,6 @@ export default function Login() {
                     navigate("/app/profile")
                 })
                 .catch((error) => {
-                    console.log(error)
                     //navigate("/error")
                 });
 

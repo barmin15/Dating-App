@@ -4,6 +4,7 @@ import com.armin.datingapp.config.UserAuthProvider;
 import com.armin.datingapp.data.dto.LoginDto;
 import com.armin.datingapp.data.dto.RegisterDto;
 import com.armin.datingapp.data.dto.UserDto;
+import com.armin.datingapp.service.AuthService;
 import com.armin.datingapp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +20,13 @@ import java.net.URI;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private final UserService userService;
+    private final AuthService authService;
     private final UserAuthProvider userAuthProvider;
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody RegisterDto signUpDTO) {
 
-        UserDto user = userService.register(signUpDTO);
+        UserDto user = authService.register(signUpDTO);
         user.setToken(userAuthProvider.createToken(user.getLogin()));
         return ResponseEntity.created(URI.create("/users/" + user.getId()))
                 .body(user);
@@ -35,7 +36,7 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<UserDto> login(@RequestBody LoginDto credentialsDTO) {
 
-        UserDto user = userService.login(credentialsDTO);
+        UserDto user = authService.login(credentialsDTO);
         user.setToken(userAuthProvider.createToken(user.getLogin()));
 
         return ResponseEntity.ok(user);

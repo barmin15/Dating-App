@@ -17,15 +17,32 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String username;
     private String login;
     private String password;
     private String gender;
+    private int age;
+    private String describeWord;
+    private int amountOfExes;
+    private String genderPreference;
+
+    @Column(columnDefinition = "TEXT")
+    private String whyToDate;
+
+    @Column(columnDefinition = "TEXT")
+    private String imageUrl;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
     @ManyToMany()
     private Set<User> liked;
 
     @ManyToMany()
     private Set<User> disliked;
+
+    @ManyToMany()
+    private Set<User> matches;
 
 }

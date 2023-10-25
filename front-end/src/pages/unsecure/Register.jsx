@@ -36,7 +36,6 @@ export default function Register() {
                 password: password,
             })
                 .then((response) => {
-                    console.log(response)
                     setUserLogin(response.data.login)
                     setAuthToken(response.data.token);
                     navigate("/app/profile")
